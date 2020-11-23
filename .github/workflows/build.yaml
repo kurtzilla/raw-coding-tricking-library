@@ -16,7 +16,7 @@ jobs:
       - name: Get DotNet Info
         run: dotnet --info
       - name: Add dotnet v5 Signing Key
-        run: wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+        run: wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
           sudo dpkg -i packages-microsoft-prod.deb
       - name: Install dotnet v5 SDK
         run: sudo apt-get update; \

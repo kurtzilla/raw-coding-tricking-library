@@ -12,17 +12,13 @@ jobs:
       - name: Print Current Directory
         run: pwd
       - name: List Files in Directory
-        run: ls
+        run: ls      
+      - name: Setup .NET Core
+          uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: '5.0.100-preview.2.20176.6'
       - name: Get DotNet Info
-        run: dotnet --info
-      - name: Add dotnet v5 Signing Key
-        run: wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
-          dpkg -i packages-microsoft-prod.deb
-      - name: Install dotnet v5 SDK
-        run: sudo apt-get update; \
-          sudo apt-get install -y apt-transport-https && \
-          sudo apt-get update && \
-          sudo apt-get install -y dotnet-sdk-5.0
+          run: dotnet --info
       - name: Check Dotnet CLi
         run: dotnet build
       - name: List Files in Directory

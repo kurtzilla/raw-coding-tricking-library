@@ -9,10 +9,12 @@ jobs:
     steps:
       - name: Pull Code
         uses: actions/checkout@v2.3.4
-      - name: Print current directory
+      - name: Print Current Directory
         run: pwd
-      - name: List files in driectory
+      - name: List Files in Directory
         run: ls
+      - name: Get DotNet Info
+        run: dotnet --info
       - name: Check Dotnet CLi
         run: dotnet build
       - name: List Files in Directory

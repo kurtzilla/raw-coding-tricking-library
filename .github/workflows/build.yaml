@@ -13,4 +13,8 @@ jobs:
         run: pwd
       - name: List files in driectory
         run: ls
+      - name: Check Dotnet CLi
+        run: dotnet
+      - name: Check NPM CLi
+        run: npm
 

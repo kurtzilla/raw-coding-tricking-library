@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
@@ -14,7 +14,6 @@
     "nuxt": "^2.14.6"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.2",
-    "axios": "^0.21.0"
+    "@nuxtjs/vuetify": "^1.0.0"
   }
 }

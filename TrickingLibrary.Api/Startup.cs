@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TrickingLibrary.Data;
 
 namespace TrickingLibrary.Api
 {
@@ -18,7 +20,8 @@ namespace TrickingLibrary.Api
         {
             services.AddControllers();
 
-            //services.AddCors(options => options.AddDefaultPolicy(build => build.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()));
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("Dev"));
+
             services.AddCors(options => options.AddPolicy(AllCors, build =>
                 build.AllowAnyHeader()
                     .AllowAnyOrigin()
@@ -40,6 +43,12 @@ namespace TrickingLibrary.Api
             {
                 endpoints.MapDefaultControllerRoute();
             });
+            
+            // https://khalidabuhakmeh.com/increase-file-upload-limit-for-aspdotnet
+            // EX: app.Run(async context =>
+            // {
+            //     context.Features.Get<IHttpMaxRequestBodySizeFeature>().MaxRequestBodySize = 100_000_000;
+            // });
         }
     }
 }
